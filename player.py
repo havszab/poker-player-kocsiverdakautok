@@ -2,7 +2,7 @@ import development
 
 
 class Player:
-    VERSION = "1.4"
+    VERSION = "2.1 new hope"
 
     def betRequest(game_state):
         our_player = development.get_our_info(game_state)
