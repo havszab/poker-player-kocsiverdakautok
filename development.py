@@ -10,7 +10,7 @@ def get_our_info(game_state):
 def is_high_cards(our_player):
     hand = our_player["hole_cards"]
     high_card = ["A", "K", "Q", "J"]
-    if hand[0] in high_card or hand[1] in high_card:
+    if hand[0]["rank"] in high_card or hand[1]["rank"] in high_card:
         return True
     else:
         return False
