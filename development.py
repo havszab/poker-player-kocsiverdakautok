@@ -23,10 +23,5 @@ def is_card_in_hand_pair(our_player):
     return False
 """
     def betRequest(self, game_state):
-        our_player = development.get_our_info()
-        if development.is_high_cards(our_player):
-            if int(game_state["current_buy_in"]) > int(our_player["stack"]):
-                return int(our_player["stack"])
-            return max(int(game_state["current_buy_in"]), int(our_player["stack"]*0.1))
-        return 0
+
 """
