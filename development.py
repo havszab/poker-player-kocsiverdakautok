@@ -88,10 +88,9 @@ def get_our_info(game_state):
 def is_high_cards(our_player):
     hand = our_player["hole_cards"]
     high_card = ["A", "K", "Q", "J"]
-    if hand[0] in high_card or hand[1] in high_card:
+    if hand[0]["rank"] in high_card or hand[1]["rank"] in high_card:
         return True
-    else:
-        return False
+    return False
 
 
 def is_card_in_hand_pair(our_player):
@@ -111,5 +110,7 @@ def betRequest(game_state):
         return max(int(game_state["current_buy_in"]), int(our_player["stack"]*0.1))
     return 0
 
-
-betRequest(test)
+"""
+print(get_our_info(test)["hole_cards"][0]["rank"])
+print(is_high_cards(get_our_info(test)))
+"""
