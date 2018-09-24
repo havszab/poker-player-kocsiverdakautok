@@ -16,4 +16,12 @@ def is_high_cards(our_player):
         return False
 
 
+def is_card_in_hand_pair(our_player):
+    hand = our_player["hole_cards"]
+    if hand[0]["rank"] == hand[1]["rank"]:
+        return True
+    return False
+
+
+
 print(test["game_state"]["current_buy_in"])
