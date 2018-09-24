@@ -81,7 +81,7 @@ test = {
 
 def get_our_info(game_state):
     for player in game_state["players"]:
-        if player["name"] is "kocsiverdakautok":
+        if player["id"] == 5:
             return player
 
 
@@ -104,13 +104,7 @@ def betRequest(game_state):
     our_player = get_our_info(game_state)
     if is_high_cards(our_player):
         if int(game_state["current_buy_in"]) > int(our_player["stack"]):
-            print(int(our_player["stack"]))
             return int(our_player["stack"])
-        print(max(int(game_state["current_buy_in"]), int(our_player["stack"]*0.1)))
         return max(int(game_state["current_buy_in"]), int(our_player["stack"]*0.1))
     return 0
 
-"""
-print(get_our_info(test)["hole_cards"][0]["rank"])
-print(is_high_cards(get_our_info(test)))
-"""
