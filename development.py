@@ -1,4 +1,82 @@
-test ={"game_state":{"tournament_id":"5b968a7bb7b7260004000002","game_id":"5ba8b9933e762d0004000078","round":0,"players":[{"name":"Legnehezebb","stack":1000,"status":"active","bet":0,"hole_cards":[],"time_used":0,"version":"0.4.3","id":0},{"name":"team Korda","stack":1000,"status":"active","bet":0,"hole_cards":[],"time_used":0,"version":"1.0 Black Widow","id":1},{"name":"Eager Ducks","stack":1000,"status":"active","bet":0,"hole_cards":[],"time_used":0,"version":"Default Java folding player","id":2},{"name":"The Embarrassed Partridges","stack":1000,"status":"active","bet":0,"hole_cards":[],"time_used":0,"version":"Java player V0.1","id":3},{"name":"pokerInterFace","stack":1000,"status":"active","bet":0,"hole_cards":[],"time_used":0,"version":"0.1","id":4},{"name":"kocsiverdakautok","stack":1000,"status":"active","bet":0,"hole_cards":["A", "A"],"time_used":0,"version":"1.2","id":5}],"small_blind":2,"big_blind":4,"orbits":0,"dealer":4,"community_cards":[],"current_buy_in":0,"pot":0}}
+test = {
+    "tournament_id": "550d1d68cd7bd10003000003",
+
+    "game_id": "550da1cb2d909006e90004b1",
+
+    "round": 0,
+    "bet_index": 0,
+
+    "small_blind": 10,
+
+    "current_buy_in": 320,
+
+    "pot": 400,
+
+    "minimum_raise": 240,
+    "dealer": 1,
+
+    "orbits": 7,
+
+    "in_action": 1,
+
+    "players": [
+        {
+
+            "id": 0,
+
+            "name": "Albert",
+
+            "status": "active",
+
+            "version": "Default random player",
+
+            "stack": 1010,
+
+            "bet": 320
+        },
+        {
+            "id": 1,
+            "name": "kocsiverdakautok",
+            "status": "active",
+            "version": "Default random player",
+            "stack": 1590,
+            "bet": 80,
+            "hole_cards": [
+
+                {
+                    "rank": "6",
+                    "suit": "hearts"
+                },
+                {
+                    "rank": "K",
+                    "suit": "spades"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Chuck",
+            "status": "out",
+            "version": "Default random player",
+            "stack": 0,
+            "bet": 0
+        }
+    ],
+    "community_cards": [
+        {
+            "rank": "4",
+            "suit": "spades"
+        },
+        {
+            "rank": "A",
+            "suit": "hearts"
+        },
+        {
+            "rank": "6",
+            "suit": "clubs"
+        }
+    ]
+}
 
 
 def get_our_info(game_state):
@@ -21,12 +99,17 @@ def is_card_in_hand_pair(our_player):
     if hand[0]["rank"] == hand[1]["rank"]:
         return True
     return False
-"""
-    def betRequest(self, game_state):
-        our_player = development.get_our_info()
-        if development.is_high_cards(our_player):
-            if int(game_state["current_buy_in"]) > int(our_player["stack"]):
-                return int(our_player["stack"])
-            return max(int(game_state["current_buy_in"]), int(our_player["stack"]*0.1))
-        return 0
-"""
+
+
+def betRequest(game_state):
+    our_player = get_our_info(game_state)
+    if is_high_cards(our_player):
+        if int(game_state["current_buy_in"]) > int(our_player["stack"]):
+            print(int(our_player["stack"]))
+            return int(our_player["stack"])
+        print(max(int(game_state["current_buy_in"]), int(our_player["stack"]*0.1)))
+        return max(int(game_state["current_buy_in"]), int(our_player["stack"]*0.1))
+    return 0
+
+
+betRequest(test)
