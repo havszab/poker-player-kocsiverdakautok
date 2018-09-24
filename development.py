@@ -2,7 +2,7 @@ test ={"game_state":{"tournament_id":"5b968a7bb7b7260004000002","game_id":"5ba8b
 
 
 def get_our_info(game_state):
-    for player in game_state["game_state"]["players"]:
+    for player in game_state["players"]:
         if player["name"] is "kocsiverdakautok":
             return player
 
@@ -16,4 +16,4 @@ def is_high_cards(our_player):
         return False
 
 
-print(test["game_state"]["current_buy_in"])
+print(test["game_state"])
