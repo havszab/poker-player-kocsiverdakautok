@@ -37,6 +37,10 @@ class Player:
                 if int(game_state["current_buy_in"]) > int(our_player["stack"]):
                     return int(our_player["stack"])
                 return max(int(game_state["current_buy_in"]), int(our_player["stack"] * 0.25))
+            elif development.is_A_or_K(our_player):
+                if int(game_state["current_buy_in"]) > int(our_player["stack"]):
+                    return int(our_player["stack"])
+                return max(int(game_state["current_buy_in"]), int(our_player["stack"] * 0.2))
             else:
                 return 0
 
