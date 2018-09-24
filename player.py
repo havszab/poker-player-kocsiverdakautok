@@ -6,7 +6,8 @@ class Player:
 
     def betRequest(self, game_state):
         our_player = development.get_our_info(game_state)
-
+        if game_state["current_buy_in"] == int(game_state["small_blind"])*2:
+            return int(game_state["small_blind"])*2
         if development.is_card_in_hand_pair(our_player):
             if int(game_state["current_buy_in"]) > int(our_player["stack"]):
                 return int(our_player["stack"])
