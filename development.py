@@ -35,7 +35,7 @@ test = {
             "bet": 320
         },
         {
-            "id": 1,
+            "id": 5,
             "name": "kocsiverdakautok",
             "status": "active",
             "version": "Default random player",
@@ -107,3 +107,20 @@ def is_card_in_hand_pair(our_player):
         return True
     return False
 
+def check_pairs(our_player, game_stats):
+    hand = our_player["hole_cards"]
+    for card in game_stats["community_cards"]:
+        if card["rank"] == hand[0]["rank"] or card["rank"] == hand[1]["rank"]:
+            return True
+    return False
+
+
+def turn_num(game_state):
+    num_of_cards = len(game_state["community_card"])
+    if num_of_cards == 0:
+        return 0
+    elif num_of_cards == 3:
+        return 1
+    elif num_of_cards == 4:
+        return 2
+    return 3
