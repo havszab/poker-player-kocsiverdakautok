@@ -95,7 +95,7 @@ def is_high_cards(our_player):
 
 def is_card_in_hand_pair(our_player):
     hand = our_player["hole_cards"]
-    if hand[0] == hand[1]:
+    if hand[0]["rank"] == hand[1]["rank"]:
         return True
     return False
 
